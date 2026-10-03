@@ -1,25 +1,25 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 type FormProps = {
-  onAdd: (amount: number, desc: string) => void;
-};
+  onAdd: (amount: number, desc: string) => void
+}
 
 export default function Form({ onAdd }: FormProps) {
-  const [type, setType] = useState("income");
-  const [amount, setAmount] = useState("");
-  const [desc, setDesc] = useState("");
+  const [type, setType] = useState('income')
+  const [amount, setAmount] = useState('')
+  const [desc, setDesc] = useState('')
 
   function handleAdd() {
     // 沒填就不新增
-    if (amount === "" || desc === "") return;
+    if (amount === '' || desc === '') return
 
     // 支出變負數
-    const num = type === "expense" ? -Number(amount) : Number(amount);
-    onAdd(num, desc);
+    const num = type === 'expense' ? -Number(amount) : Number(amount)
+    onAdd(num, desc)
 
     // 清空輸入框
-    setAmount("");
-    setDesc("");
+    setAmount('')
+    setDesc('')
   }
 
   return (
@@ -44,5 +44,5 @@ export default function Form({ onAdd }: FormProps) {
         新增紀錄
       </button>
     </div>
-  );
+  )
 }

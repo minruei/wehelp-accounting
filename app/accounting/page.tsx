@@ -1,34 +1,34 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import Link from "next/link";
-import Form from "@/components/Form";
-import List, { Item } from "@/components/List";
+import { useState } from 'react'
+import Link from 'next/link'
+import Form from '@/components/Form'
+import List, { Item } from '@/components/List'
 
 export default function AccountingPage() {
   // 負數是支出，正數是收入
   const [items, setItems] = useState<Item[]>([
-    { id: 1, amount: -1200, desc: "吃大餐" },
-    { id: 2, amount: -500, desc: "咖啡十杯" },
-    { id: 3, amount: -200, desc: "生活用品" },
-    { id: 4, amount: 50000, desc: "十月份薪資" },
-  ]);
+    { id: 1, amount: -1200, desc: '吃大餐' },
+    { id: 2, amount: -500, desc: '咖啡十杯' },
+    { id: 3, amount: -200, desc: '生活用品' },
+    { id: 4, amount: 50000, desc: '十月份薪資' },
+  ])
 
   // 新增紀錄
   function addItem(amount: number, desc: string) {
-    const newItem: Item = { id: Date.now(), amount, desc };
-    setItems([...items, newItem]);
+    const newItem: Item = { id: Date.now(), amount, desc }
+    setItems([...items, newItem])
   }
 
   // 刪除紀錄
   function deleteItem(id: number) {
-    setItems(items.filter((item) => item.id !== id));
+    setItems(items.filter((item) => item.id !== id))
   }
 
   // 算小計
-  let total = 0;
+  let total = 0
   for (const item of items) {
-    total += item.amount;
+    total += item.amount
   }
 
   return (
@@ -44,5 +44,5 @@ export default function AccountingPage() {
         </Link>
       </div>
     </main>
-  );
+  )
 }
